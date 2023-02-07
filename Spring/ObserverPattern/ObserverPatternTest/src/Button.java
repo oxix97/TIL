@@ -9,7 +9,7 @@ public class Button {
     }
 
     public void click(String msg) {
-        listener.clickListener(msg);
+        listener.clickEvent(msg);
     }
 
     public void addListener(IButtonListener listener) {

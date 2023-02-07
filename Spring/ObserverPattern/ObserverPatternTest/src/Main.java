@@ -6,7 +6,7 @@ public class Main {
 
         button.addListener(new IButtonListener() {
             @Override
-            public void clickListener(String event) {
+            public void clickEvent(String event) {
                 System.out.println(event);
             }
         });
