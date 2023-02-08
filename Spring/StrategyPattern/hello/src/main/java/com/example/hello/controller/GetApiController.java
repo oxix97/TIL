@@ -1,5 +1,6 @@
 package com.example.hello.controller;
 
+import com.example.hello.dto.UserReq;
 import jakarta.websocket.server.PathParam;
 import org.springframework.web.bind.annotation.*;
 
@@ -50,5 +51,10 @@ public class GetApiController {
         return "name : " + name + "\nemail : " + email + "\nage : " + age;
     }
 
-
+    //객체를 바로 query-parameter로 매치가 되기 때문에 @Requestparam을 사용하지 않아도 된다.
+    @GetMapping("/query-param3")
+    public String queryParam3(UserReq request) {
+        System.out.println(request.toString());
+        return request.toString();
+    }
 }
