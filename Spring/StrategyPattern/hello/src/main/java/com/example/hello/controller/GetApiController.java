@@ -1,6 +1,9 @@
 package com.example.hello.controller;
 
+import jakarta.websocket.server.PathParam;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/get-test")
@@ -22,5 +25,17 @@ public class GetApiController {
     public String pathVariable(@PathVariable(name = "name") String pathName) {
         System.out.println("name : " + pathName);
         return pathName;
+    }
+
+    //http:localhost:9090/api/get-test/query-param?user=chan&email=ieejo716@navre.com&age=27
+    //query의 시작은 ?이며 key=value로 이루어져 있다. 조건을 추가하고 싶은 경우 &를 붙여 key=value 형식으로 나아갈수있다.
+
+    @GetMapping("/query-param")
+    public String queryParam(@RequestParam Map<String, String> queryParam) {
+        StringBuilder sb = new StringBuilder();
+
+        queryParam.forEach((key, value) -> sb.append(key).append(" , ").append(value));
+
+        return sb.toString();
     }
 }
