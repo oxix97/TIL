@@ -1,10 +1,22 @@
 package com.example.hello.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class UserInfoReq {
     private String account;
     private String email;
     private String address;
     private String password;
+    @JsonProperty("phone-number")
+    private String phoneNumber;
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
     public String getAccount() {
         return account;
@@ -45,6 +57,7 @@ public class UserInfoReq {
                 ", email='" + email + '\'' +
                 ", address='" + address + '\'' +
                 ", password='" + password + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 '}';
     }
 }
