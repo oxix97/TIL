@@ -41,5 +41,14 @@ public class GetApiController {
         return sb.toString();
     }
 
+    @GetMapping("/query-param2")
+    public String queryParam2(
+            @RequestParam String name,
+            @RequestParam String email,
+            @RequestParam int age
+    ) {
+        return "name : " + name + "\nemail : " + email + "\nage : " + age;
+    }
+
 
 }
