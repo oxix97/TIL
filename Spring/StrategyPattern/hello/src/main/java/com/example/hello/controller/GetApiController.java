@@ -30,6 +30,8 @@ public class GetApiController {
     //http:localhost:9090/api/get-test/query-param?user=chan&email=ieejo716@navre.com&age=27
     //query의 시작은 ?이며 key=value로 이루어져 있다. 조건을 추가하고 싶은 경우 &를 붙여 key=value 형식으로 나아갈수있다.
 
+
+    //해당 부분은 Map으로 query를 받아 어떠한 것이 들어와도 형식이 맞으면 된다.
     @GetMapping("/query-param")
     public String queryParam(@RequestParam Map<String, String> queryParam) {
         StringBuilder sb = new StringBuilder();
@@ -38,4 +40,6 @@ public class GetApiController {
 
         return sb.toString();
     }
+
+
 }
